@@ -29,7 +29,9 @@
     define([], factory); // AMD
   } else if (typeof exports === 'object') {
     module.exports = factory(); // CommonJS
-  } else {
+  } else if(typeof kony === "object"){
+    kony.assert = factory(); //Kony SDK
+  }else {
     root.assert = factory(); // Global
   }
 })(this, function() {
